@@ -33,6 +33,12 @@ int main(){
         std::string choice;
         std::getline(std::cin, choice);
         
+        if(choice == "view"){
+            for(std::size_t i = 0; i < tasks.size(); ++i){
+                
+            }
+        }
+
         if(choice == "quit"){
             running = false;
         }
