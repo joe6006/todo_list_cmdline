@@ -5,6 +5,7 @@
 //because its public and a class is private
 struct Task{
     //store description
+    std::string date;
     std::string description;
     bool completed =false;
 
@@ -34,12 +35,15 @@ int main(){
         std::getline(std::cin, choice);
         
         if(choice == "view"){
+            //use size_t because it hold more byte wise and does not include anyting negative
+            //best used when indexing arrays or vectors
+            
             for(std::size_t i = 0; i < tasks.size(); ++i){
+                std::cout<< i+1 <<"." << tasks[i].description<<std::endl;
                 
-            }
-        }
-
-        if(choice == "quit"){
+            }       
+        
+        }else if(choice == "quit"){
             running = false;
         }
 
