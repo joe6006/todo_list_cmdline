@@ -10,6 +10,23 @@ struct Task{
     bool completed =false;
 
 };
+//use refrence to refer to the vector in the main function instead of creating a copy
+void Add( std::vector <Task>& tasks){
+        Task newTasks;
+        std::cout<< "enter new task"<<std::endl;
+        std::getline(std::cin,newTasks.description);
+        tasks.push_back(newTasks);
+};  
+void Edit( std::vector <Task>& tasks){
+   
+        std::cout<< "Select which task to edit. use #'s EX: 1, 2, 3..."<<std::endl;
+        std::string input;
+        std::getline(std::cin, input);
+        
+
+
+};  
+
 
 
 int main(){
@@ -28,6 +45,12 @@ int main(){
 
     bool running = true;
     while(running){
+
+        for(std::size_t i = 0; i < tasks.size(); ++i){
+                std::cout<< i+1 <<"." << tasks[i].description<<std::endl;
+                
+            }; 
+        
         std::cout<<"To-Do List menu\n";
        
         std::cout<<"To add a task, type 'add'"<<std::endl;
@@ -46,6 +69,7 @@ int main(){
         
         }else if(choice == "add"){
                 std::cout<<"it works"<<std::endl;
+                 Add(tasks);
             }else if(choice == "edit"){
                 std::cout<<"edit works"<<std::endl;
             }else if(choice == "quit"){
@@ -53,11 +77,7 @@ int main(){
         }
 
         
-                for(std::size_t i = 0; i < tasks.size(); ++i){
-                std::cout<< i+1 <<"." << tasks[i].description<<std::endl;
                 
-            }; 
-        
     }
     
     
