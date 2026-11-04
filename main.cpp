@@ -29,31 +29,37 @@ int main(){
     bool running = true;
     while(running){
         std::cout<<"To-Do List menu\n";
-        std::cout<<"To view tasks type 'view'"<<std::endl;
+       
+        std::cout<<"To add a task, type 'add'"<<std::endl;
+        std::cout<<"To edit a task, type 'edit'"<<std::endl;
         std::cout<<"To quit, type 'quit'"<<std::endl;
 
         std::string choice;
         std::getline(std::cin, choice);
-        
-        if(choice == "view"){
+
+        if(tasks.empty()){
             //use size_t because it hold more byte wise and does not include anyting negative
             //best used when indexing arrays or vectors
 
-            if(tasks.empty()){
-                std::cout << "It seems you have no task, would like you to add some? If so type add"<<std::endl;
-                std::getline(std::cin, choice);
-            }
+            std::cout << "It seems you have no task, would like you to add some? If so, type add"<<std::endl;
 
-            for(std::size_t i = 0; i < tasks.size(); ++i){
-                std::cout<< i+1 <<"." << tasks[i].description<<std::endl;
-                
-            }       
         
-        }else if(choice == "quit"){
+        }else if(choice == "add"){
+                std::cout<<"it works"<<std::endl;
+            }else if(choice == "edit"){
+                std::cout<<"edit works"<<std::endl;
+            }else if(choice == "quit"){
             running = false;
         }
 
+        
+                for(std::size_t i = 0; i < tasks.size(); ++i){
+                std::cout<< i+1 <<"." << tasks[i].description<<std::endl;
+                
+            }; 
+        
     }
-
+    
+    
     return 0;
 }
