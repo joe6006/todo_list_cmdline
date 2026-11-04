@@ -22,6 +22,7 @@ int main(){
     Task example; 
     example.description = "learn cpp\n";
     //push to vector tasks
+
     tasks.push_back(example);
     std::cout<<tasks[0].description;
 
@@ -37,7 +38,12 @@ int main(){
         if(choice == "view"){
             //use size_t because it hold more byte wise and does not include anyting negative
             //best used when indexing arrays or vectors
-            
+
+            if(tasks.empty()){
+                std::cout << "It seems you have no task, would like you to add some? If so type add"<<std::endl;
+                std::getline(std::cin, choice);
+            }
+
             for(std::size_t i = 0; i < tasks.size(); ++i){
                 std::cout<< i+1 <<"." << tasks[i].description<<std::endl;
                 
